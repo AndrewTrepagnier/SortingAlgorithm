@@ -17,15 +17,20 @@ for index, row in data.iterrows():
     row_sum = row.sum()
     total += row_sum
     values.append(row_sum)  
-    mean = total / 25
-    diffs = (row_sum - mean)**2
-    var += diffs / (24)
+    
     print(f"Sum of line {index + 1}: {row_sum}")
 
         # PART E
     if row_sum < 5000:
             part_e += 1
-      
+# Calculate Mean
+mean = total / 25
+
+# Calculate variance 
+var = 0
+for value in values:
+    var += (value - mean)**2
+var = var / 24       
 #Sorting algorithm is based on a script i once made with java converted over to python. 
 
 n = len(values)
